@@ -27,8 +27,10 @@ public class RestContrl
 
     @Value("${value.url.currency}")
     private String currencyUrl;
-    @Value("${value.url.rate}")
-    private String rateUrl;
+    @Value("${value.url.dailyrate}")
+    private String dailyRateUrl;
+    @Value("${value.url.monthlyrate}")
+private String monthlyRateUrl;
 
 
     public RestContrl(AddArrayListRatesInBd addArrayListRatesInBd, AddArrayListCurrencyInBd addArrayListCurrencyInBd , GetArrayListRatesDto getArrayListRatesDto, GetArrayListCurrencyDto getArrayListCurrencyDto) {
@@ -39,22 +41,29 @@ public class RestContrl
     }
 
 
+    @RequestMapping("/monthlyrate")
+    public String getMonthlyRates() {
 
-    @PostMapping("/rate")
-    public String getCurrencies() {
-
-        ArrayList<RatesDto> jsons=getArrayListRatesDto.getJsonsArray(rateUrl);
+        ArrayList<RatesDto> jsons=getArrayListRatesDto.getJsonsArray(monthlyRateUrl);
         addArrayListRatesInBd.AddJsonsArrayInBD(jsons);
 
-        return "currencies added successfully";
+        return "monthly daily rates added successfully";
+    }
+    @RequestMapping("/dailyrate")
+    public String getDailyRates() {
+
+        ArrayList<RatesDto> jsons=getArrayListRatesDto.getJsonsArray(dailyRateUrl);
+        addArrayListRatesInBd.AddJsonsArrayInBD(jsons);
+
+        return "daily rates added successfully";
     }
     @RequestMapping("/currency")
-    public String getRates() {
+    public String getCurrencies() {
 
         ArrayList<CurrencyDto> jsons=getArrayListCurrencyDto.getJsonsArray(currencyUrl);
         addArrayListCurrencyInBd.AddJsonsArrayInBD(jsons);
 
-        return "rates added successfully";
+        return "currencies added successfully";
     }
 
 
