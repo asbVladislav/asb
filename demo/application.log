@@ -1,0 +1,105 @@
+2023-06-14 14:39:33.960  INFO 12128 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 11.0.2 on WCA-S531671 with PID 12128 (D:\project\demo\demo\target\classes started by eu_ca_0834 in D:\project\demo\demo)
+2023-06-14 14:39:33.963  INFO 12128 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2023-06-14 14:39:34.541  INFO 12128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-14 14:39:34.600  INFO 12128 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 49 ms. Found 2 JPA repository interfaces.
+2023-06-14 14:39:35.028  INFO 12128 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-06-14 14:39:35.035  INFO 12128 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-14 14:39:35.036  INFO 12128 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-06-14 14:39:35.161  INFO 12128 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-14 14:39:35.162  INFO 12128 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1160 ms
+2023-06-14 14:39:35.289  INFO 12128 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.13 by Redgate
+2023-06-14 14:39:35.289  INFO 12128 --- [main] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+2023-06-14 14:39:35.289  INFO 12128 --- [main] o.f.c.internal.license.VersionPrinter    : 
+2023-06-14 14:39:35.299  INFO 12128 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-14 14:39:35.515  INFO 12128 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-14 14:39:35.544  INFO 12128 --- [main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/test2 (MySQL 8.0)
+2023-06-14 14:39:35.595  INFO 12128 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.027s)
+2023-06-14 14:39:35.606  INFO 12128 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema `test2`: 00004
+2023-06-14 14:39:35.607  INFO 12128 --- [main] o.f.core.internal.command.DbMigrate      : Schema `test2` is up to date. No migration necessary.
+2023-06-14 14:39:35.716  INFO 12128 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-14 14:39:35.773  INFO 12128 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-06-14 14:39:35.881  INFO 12128 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-06-14 14:39:36.002  INFO 12128 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-06-14 14:39:36.432  INFO 12128 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-14 14:39:36.455  INFO 12128 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-14 14:39:36.752  WARN 12128 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-14 14:39:37.060  INFO 12128 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-14 14:39:37.069  INFO 12128 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.485 seconds (JVM running for 4.241)
+2023-06-14 14:39:37.342  INFO 12128 --- [scheduling-1] Schedule Logger                          : Monthly Rates get from url 
+2023-06-14 14:39:45.070  INFO 12128 --- [scheduling-1] Schedule Logger                          : Monthly Rates add into database 
+2023-06-14 14:39:45.127  INFO 12128 --- [scheduling-1] Schedule Logger                          : Daily Rates get from url
+2023-06-14 14:39:50.853  INFO 12128 --- [scheduling-1] Schedule Logger                          : Daily Rates add into database 
+2023-06-14 14:40:25.466  INFO 12128 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-14 14:40:25.468  INFO 12128 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-06-14 14:40:25.475  INFO 12128 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-06-14 14:41:32.849  INFO 12376 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 11.0.2 on WCA-S531671 with PID 12376 (D:\project\demo\demo\target\classes started by eu_ca_0834 in D:\project\demo\demo)
+2023-06-14 14:41:32.851  INFO 12376 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2023-06-14 14:41:33.486  INFO 12376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-14 14:41:33.554  INFO 12376 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 2 JPA repository interfaces.
+2023-06-14 14:41:34.074  INFO 12376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-06-14 14:41:34.083  INFO 12376 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-14 14:41:34.083  INFO 12376 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-06-14 14:41:34.208  INFO 12376 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-14 14:41:34.209  INFO 12376 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1311 ms
+2023-06-14 14:41:34.338  INFO 12376 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.13 by Redgate
+2023-06-14 14:41:34.339  INFO 12376 --- [main] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+2023-06-14 14:41:34.339  INFO 12376 --- [main] o.f.c.internal.license.VersionPrinter    : 
+2023-06-14 14:41:34.350  INFO 12376 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-14 14:41:34.560  INFO 12376 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-14 14:41:34.598  INFO 12376 --- [main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/test2 (MySQL 8.0)
+2023-06-14 14:41:34.650  INFO 12376 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.027s)
+2023-06-14 14:41:34.662  INFO 12376 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema `test2`: 00004
+2023-06-14 14:41:34.663  INFO 12376 --- [main] o.f.core.internal.command.DbMigrate      : Schema `test2` is up to date. No migration necessary.
+2023-06-14 14:41:34.787  INFO 12376 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-14 14:41:34.833  INFO 12376 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-06-14 14:41:34.937  INFO 12376 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-06-14 14:41:35.033  INFO 12376 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-06-14 14:41:35.413  INFO 12376 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-14 14:41:35.421  INFO 12376 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-14 14:41:35.693  WARN 12376 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-14 14:41:35.985  INFO 12376 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-14 14:41:35.996  INFO 12376 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.498 seconds (JVM running for 4.174)
+2023-06-14 14:41:36.292  INFO 12376 --- [scheduling-1] Schedule Logger                          : Monthly Rates get from url 
+2023-06-14 14:41:44.855  INFO 12376 --- [scheduling-1] Schedule Logger                          : Monthly Rates add into database 
+2023-06-14 14:41:44.984  INFO 12376 --- [scheduling-1] Schedule Logger                          : Daily Rates get from url
+2023-06-14 14:41:49.905  INFO 12376 --- [scheduling-1] Schedule Logger                          : Daily Rates add into database 
+2023-06-14 14:42:07.648  INFO 12376 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-14 14:42:07.650  INFO 12376 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-06-14 14:42:07.657  INFO 12376 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2023-06-14 14:42:41.875  INFO 14272 --- [main] com.example.demo.DemoApplication         : Starting DemoApplication using Java 11.0.2 on WCA-S531671 with PID 14272 (D:\project\demo\demo\target\classes started by eu_ca_0834 in D:\project\demo\demo)
+2023-06-14 14:42:41.880  INFO 14272 --- [main] com.example.demo.DemoApplication         : No active profile set, falling back to 1 default profile: "default"
+2023-06-14 14:42:42.475  INFO 14272 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-06-14 14:42:42.530  INFO 14272 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 47 ms. Found 2 JPA repository interfaces.
+2023-06-14 14:42:42.926  INFO 14272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-06-14 14:42:42.934  INFO 14272 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-06-14 14:42:42.934  INFO 14272 --- [main] org.apache.catalina.core.StandardEngine  : Starting Servlet engine: [Apache Tomcat/9.0.68]
+2023-06-14 14:42:43.057  INFO 14272 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2023-06-14 14:42:43.058  INFO 14272 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1126 ms
+2023-06-14 14:42:43.185  INFO 14272 --- [main] o.f.c.internal.license.VersionPrinter    : Flyway Community Edition 8.5.13 by Redgate
+2023-06-14 14:42:43.185  INFO 14272 --- [main] o.f.c.internal.license.VersionPrinter    : See what's new here: https://flywaydb.org/documentation/learnmore/releaseNotes#8.5.13
+2023-06-14 14:42:43.185  INFO 14272 --- [main] o.f.c.internal.license.VersionPrinter    : 
+2023-06-14 14:42:43.195  INFO 14272 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-06-14 14:42:43.419  INFO 14272 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-06-14 14:42:43.448  INFO 14272 --- [main] o.f.c.i.database.base.BaseDatabaseType   : Database: jdbc:mysql://localhost:3306/test2 (MySQL 8.0)
+2023-06-14 14:42:43.494  INFO 14272 --- [main] o.f.core.internal.command.DbValidate     : Successfully validated 4 migrations (execution time 00:00.023s)
+2023-06-14 14:42:43.506  INFO 14272 --- [main] o.f.core.internal.command.DbMigrate      : Current version of schema `test2`: 00004
+2023-06-14 14:42:43.507  INFO 14272 --- [main] o.f.core.internal.command.DbMigrate      : Schema `test2` is up to date. No migration necessary.
+2023-06-14 14:42:43.619  INFO 14272 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-06-14 14:42:43.676  INFO 14272 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.12.Final
+2023-06-14 14:42:43.782  INFO 14272 --- [main] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2023-06-14 14:42:43.864  INFO 14272 --- [main] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2023-06-14 14:42:44.248  INFO 14272 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-06-14 14:42:44.256  INFO 14272 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-06-14 14:42:44.532  WARN 14272 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-06-14 14:42:44.806  INFO 14272 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2023-06-14 14:42:44.816  INFO 14272 --- [main] com.example.demo.DemoApplication         : Started DemoApplication in 3.283 seconds (JVM running for 3.944)
+2023-06-14 14:42:44.992  INFO 14272 --- [scheduling-1] Schedule Logger                          : Daily Rates get from url
+2023-06-14 14:42:49.918  INFO 14272 --- [scheduling-1] Schedule Logger                          : Daily Rates add into database 
+2023-06-14 14:42:49.975  INFO 14272 --- [scheduling-1] Schedule Logger                          : Monthly Rates get from url 
+2023-06-14 14:42:58.334  INFO 14272 --- [scheduling-1] Schedule Logger                          : Monthly Rates add into database 
+2023-06-14 14:43:44.916  INFO 14272 --- [scheduling-1] Schedule Logger                          : Daily Rates get from url
+2023-06-14 14:43:49.257  INFO 14272 --- [scheduling-1] Schedule Logger                          : Daily Rates add into database 
+2023-06-14 14:44:44.873  INFO 14272 --- [scheduling-1] Schedule Logger                          : Daily Rates get from url
+2023-06-14 14:44:45.965  INFO 14272 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-06-14 14:44:45.967  INFO 14272 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-06-14 14:44:45.979  INFO 14272 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
