@@ -1,0 +1,28 @@
+ @GetMapping("/MainPage/NewProduct")
+    public String newprod(@RequestParam String Type) {
+        if(Type.equals("credit")) return "ForUser/newCredit";
+       else return "ForUser/newCard";
+    }
+    
+     @PostMapping("/MainPage/newCredit")
+    public String createCredit(@RequestParam String ForWhom, int dateofvisit ,@RequestParam (required = false ,defaultValue = "-1")int year,@RequestParam (required = false,defaultValue = "-1") String email,@RequestParam (required = false,defaultValue = "-1") int percent,@RequestParam (required = false,defaultValue = "-1")int amountofmoney,Principal principal) {
+
+
+       if(checkDataAndThenSend.sendMail(email, ForWhom, year, percent, amountofmoney))
+       {
+       String maxId=productRepository.maxIdNow();
+       long maxIdInt;
+       if (maxId==null){maxIdInt=1;}
+       else {maxIdInt=Long.parseLong(maxId)+1;}
+        Long IdUser=UserRepository.findIdByLogin(principal.getName());
+
+        product newprod=new product(maxIdInt,"Credit",  java.sql.Date.valueOf(LocalDate.now().plusDays(dateofvisit)), Status.Active,IdUser);
+
+        productRepository.save(newprod);
+        if(ForWhom.equals("organisation")){creditRepository.save(new credit(newprod,forwhom.organisation,percent,amountofmoney,year));}
+       else{ creditRepository.save(new credit(newprod,forwhom.person,percent,amountofmoney,year));}
+       historyRepository.save(new history(maxIdInt,action.Actived));
+           System.out.println("все прошло хорошо");
+       }
+        return "redirect:/MainPage";
+    }
