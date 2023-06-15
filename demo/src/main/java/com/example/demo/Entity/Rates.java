@@ -32,6 +32,12 @@ public class Rates {
     private Date Date;
     private int Cur_Scale;
 
+//    public Rates getFirstResponse(Rates requestRate) {
+//        Rates responseRate=new Rates();
+//        responseRate.setCur_ID(requestRate.getCur_ID());
+//        return responseRate;
+//    }
+
     public Rates(int cur_ID, String cur_Name, double cur_OfficialRate, String cur_Abbreviation, java.sql.Date date, int cur_Scale) {
         Cur_ID = cur_ID;
         Cur_Name = cur_Name;

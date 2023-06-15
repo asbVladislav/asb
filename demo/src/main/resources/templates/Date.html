@@ -1,0 +1,163 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Создание заявки</title>
+</head>
+
+<style>
+    body {
+        background-color:  black ;
+        text-align: center;
+    }
+    a:link, a:visited {
+        font-family: Arial, Helvetica, sans-serif;
+        width: 100px;
+        background-color: white;
+        color: black;
+        border: #a1a1a1;
+        border-radius: 12px;
+        padding: 15px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+    a:hover, a:active {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #575757;
+        color: white;
+    }
+
+    .button {
+        border: none;
+        color: white;
+        border-radius: 12px;
+        padding: 16px 32px;
+        margin-left: 38.5%;
+        margin-top: 5%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    .button1 {
+        background-color: white;
+        color: black;
+        border: 0px solid #000000;
+    }
+
+    .button1:hover {
+        background-color: #575757;
+        color: white;
+    }
+
+
+
+
+    input[type=radio] {
+        display: none;
+    }
+
+    label {
+        display: inline-block;
+        padding: 16px 32px;
+        border-radius: 12px;
+        background-color: #575757;
+        cursor: pointer;
+        margin-right: 1%;
+        margin-left: 1%;
+    }
+
+    input[type=radio]:checked + label {
+        background-color: #4CAF50;
+    }
+
+    input[type=email] {
+        border: none;
+        border-bottom: 2px solid #ccc;
+        border-radius: 12px;
+
+        padding: 16px 32px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    input[type=email]:focus {
+        border-bottom: 5px solid #575757;
+    }
+
+    input[type=number] {
+        border: none;
+
+        border-bottom: 2px solid #ccc;
+        alignment: center;
+        border-radius: 12px;
+        padding: 16px 32px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    input[type=number]:focus {
+        border-bottom: 5px solid #575757;
+    }
+    input[type=date] {
+        border: none;
+
+        border-bottom: 2px solid #ccc;
+        alignment: center;
+        border-radius: 12px;
+        padding: 16px 32px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    input[type=date]:focus {
+        border-bottom: 5px solid #575757;
+    }
+
+
+
+</style>
+<body>
+<div class="container">
+    <form class="form-signin" method="post" action="generateUrl">
+        <h2 class="form-signin-heading"></h2>
+        <p>
+
+            <a style="width: 180px" href="/?Type=period">Период</a>
+            <a style="width: 180px" href="/?Type=date">Конкретная дата</a>
+
+        </p>
+
+
+        <p>
+        <p style="color: white;font-size: 20px;">Какую информацию необходимо получить? </p>
+        <input type="radio" name="infType" id="complete" value="complete" checked>
+        <label for="complete" style="color: white">Полную</label>
+        <input type="radio" name="infType" id="incomplete" value="incomplete" >
+        <label for="incomplete" style="color: white"> Краткую</label>
+        </p>
+
+        <p style="color: white ;font-size: 20px;">Дата, по которой будут подобраны курсы </p>
+        <p>
+            <input type="date" name="date" required  id="date"min="0">
+        </p>
+
+
+
+
+
+
+        <button style="margin-left: 20px; margin-bottom: 15px"  class="button button1" type="submit">Получить информацию!</button>
+    </form>
+
+    <div style="text-align: right; margin-top: 4%">
+<!--        <p> <a style="float: left"  href="/MainPage"> Вернуться назад</a></p>-->
+    </div>
+
+</div>
+</body>
+</html>

@@ -1,15 +1,14 @@
 package com.example.demo.Schedule;
 
 import com.example.demo.Entity.Dto.RatesDto;
-import com.example.demo.Service.AddArrayListRatesInBd;
-import com.example.demo.Service.GetArrayListRatesDto;
+import com.example.demo.Service.db.AddArrayListRatesInBd;
+import com.example.demo.Service.getByUrl.GetArrayListRatesDto;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 @Service
@@ -36,7 +35,7 @@ public class Schedule {
         try {
             ArrayList<RatesDto> jsons = getArrayListRatesDto.getJsonsArray(monthlyRateUrl);
             logger.info("Monthly Rates get from url ");
-            addArrayListRatesInBd.AddJsonsArrayInBD(jsons);
+           // addArrayListRatesInBd.AddJsonsArrayInBD(jsons);
             logger.info("Monthly Rates add into database ");
         }
         catch (Throwable e){logger.error(e.getLocalizedMessage(),e.getMessage());}
@@ -46,7 +45,7 @@ public class Schedule {
         try{
         ArrayList<RatesDto> jsons=getArrayListRatesDto.getJsonsArray(dailyRateUrl);
         logger.info("Daily Rates get from url");
-        addArrayListRatesInBd.AddJsonsArrayInBD(jsons);
+       // addArrayListRatesInBd.AddJsonsArrayInBD(jsons);
         logger.info("Daily Rates add into database ");}
         catch (Throwable e){logger.error(e.getLocalizedMessage(),e.getMessage());}
     }
