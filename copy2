@@ -1,0 +1,17 @@
+ @GetMapping(value = "/newUser")
+    public String newusir(@RequestParam(name = "error", required = false, defaultValue = "false") String Error) {
+        if(Error.equals("true")) {return "ForUser/newUserAlwaysThere";}
+        return "ForUser/newUser";
+    }
+
+
+    @PostMapping("/newUser/registraite")
+    public String create(@RequestParam String log, String pass,String name,String surname,String patron) {
+        user newUser=new user(log,passwordEncoder.encode(pass),name,surname, patron, Role.USER);
+        if(UserRepository.findByLogin(newUser.getLogin()).isEmpty())
+        {UserRepository.save(newUser);
+            return "redirect:/login";}
+        else {
+            return  "redirect:/newUser?error=true";
+        }
+    }
