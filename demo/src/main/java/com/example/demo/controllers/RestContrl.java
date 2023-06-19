@@ -13,29 +13,25 @@ import com.example.demo.Service.*;
 
 import com.example.demo.Service.db.AddArrayListCurrencyInBd;
 import com.example.demo.Service.getByUrl.GetArrayListCurrencyDto;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 
 import javax.swing.text.html.HTML;
 import java.util.ArrayList;
 import java.util.Arrays;
-
-@ResponseBody
-@Controller
+@Tag(name="Контроллер получения", description="Контроллер для получения данных и БД")
+@RestController
 public class RestContrl
 {
-    private final AddArrayListCurrencyInBd addArrayListCurrencyInBd;
-
-    private final GetArrayListCurrencyDto getArrayListCurrencyDto;
 
     private  final RatesRepository ratesRepository;
     private  final CurrencyRepository currencyRepository;
@@ -43,14 +39,16 @@ public class RestContrl
 
     Logger logger;
 
-    @Value("${value.url.currency}")
-    private String currencyUrl;
 
 
 
 
+    @Operation(
+            summary = "Получение кратких курсов валют",
+            description = "Позволяет получить подробную информацию о каждой валюте по дате"
+    )
     @GetMapping("/rates")
-    public ResponseEntity<?> getRatesByDate( @RequestParam String date){
+    public ResponseEntity<?> getRatesByDate( @RequestParam  @Parameter(description = "Дата с которой будут выбраны валюты") String date){
         try {
             DateParser dateParser=new DateParser("y-MM-dd");
             Rates[] rates = ratesRepository.findByDate(dateParser.parse(date));
@@ -61,11 +59,16 @@ public class RestContrl
 
         } catch (Exception e){
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+
         }
     }
 
+    @Operation(
+            summary = "Получение кратких курсов валют в рамках периода",
+            description = "Позволяет получить подробную информацию о каждой валюте в рамках некоторого периода"
+    )
     @GetMapping("/ratesperiod")
-    public ResponseEntity<?> getRatesPeriodByDate( @RequestParam String startperiod,@RequestParam String endperiod){
+    public ResponseEntity<?> getRatesPeriodByDate( @RequestParam @Parameter(description = "Начало периода с которого будут выбраны валюты") String startperiod,@RequestParam @Parameter(description = "Конец периода с которого будут выбраны валюты") String endperiod){
 
         try {
             DateParser dateParser=new DateParser("y-MM-dd");
@@ -81,8 +84,12 @@ public class RestContrl
         }
     }
 
+    @Operation(
+            summary = "Получение полных курсов валют",
+            description = "Позволяет полных подробную информацию о каждой валюте по дате"
+    )
     @GetMapping("/allrates")
-    public ResponseEntity<?> getRatesByDateAll( @RequestParam String date){
+    public ResponseEntity<?> getRatesByDateAll( @RequestParam  @Parameter(description = "Дата с которой будут выбраны валюты") String date){
 
         try {
             DateParser dateParser=new DateParser("y-MM-dd");
@@ -97,9 +104,12 @@ public class RestContrl
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
-
+    @Operation(
+            summary = "Получение полных курсов валют в рамках периода",
+            description = "Позволяет полных подробную информацию о каждой валюте в рамках некоторого периода"
+    )
     @GetMapping("/allratesperiod")
-    public ResponseEntity<?> getRatesPeriodByDateAll( @RequestParam String startperiod,@RequestParam String endperiod){
+    public ResponseEntity<?> getRatesPeriodByDateAll(@RequestParam @Parameter(description = "Начало периода с которого будут выбраны валюты") String startperiod, @RequestParam @Parameter(description = "Конец периода с которого будут выбраны валюты") String endperiod){
 
         try {
             DateParser dateParser=new DateParser("y-MM-dd");
@@ -117,24 +127,10 @@ public class RestContrl
     }
 
 
-    @RequestMapping("/currency")
-    public String getCurrencies() {
-        try {
-        ArrayList<CurrencyDto> jsons=getArrayListCurrencyDto.getJsonsArray(currencyUrl);
-        logger.info("Currency get from url ");
-        addArrayListCurrencyInBd.AddJsonsArrayInBD(jsons);
-        logger.info("Currency add into database ");
-            return "currencies added successfully";
-        }
-        catch (Throwable e){logger.error(e.getMessage());
-            return "currencies NOT added successfully";}
-
-    }
 
 
-    public RestContrl(AddArrayListCurrencyInBd addArrayListCurrencyInBd , GetArrayListCurrencyDto getArrayListCurrencyDto, RatesRepository ratesRepository, CurrencyRepository currencyRepository) {
-        this.addArrayListCurrencyInBd = addArrayListCurrencyInBd;
-        this.getArrayListCurrencyDto = getArrayListCurrencyDto;
+
+    public RestContrl( RatesRepository ratesRepository, CurrencyRepository currencyRepository) {
         this.ratesRepository = ratesRepository;
         this.currencyRepository = currencyRepository;
         logger = LoggerFactory.getLogger("Controller Logger");

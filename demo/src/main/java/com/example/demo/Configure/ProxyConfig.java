@@ -8,6 +8,7 @@ import org.springframework.web.client.RestTemplate;
 import java.net.InetSocketAddress;
 import java.net.Proxy;
 @Configuration
+
 public class ProxyConfig {
     @Bean
     public RestTemplate restTemplate() {
@@ -17,5 +18,10 @@ public class ProxyConfig {
         requestFactory.setProxy(proxy);
 
         return new RestTemplate(requestFactory);
+    }
+    @Bean
+    public RestTemplate restTemplateWithoutProxy() {
+        SimpleClientHttpRequestFactory requestFactory = new SimpleClientHttpRequestFactory();
+        return new RestTemplate();
     }
 }
