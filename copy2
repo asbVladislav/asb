@@ -178,3 +178,29 @@
 
 
     }
+    
+    
+    
+    
+    
+    
+    <div style="color:white " th:each="el:${users}">
+
+    <b style="color:white">Логин:</b>
+  <b style="color:white " th:text="${el.login}"  />
+    </p>
+    <p>
+    <b style="color:white">Роль:</b>
+  <b style="color:white "th:text="${el.userrole}"/>
+    </p>
+    <p>
+<!--    <p style="color:white">Дата последнего поста</p>-->
+    <b style="color:white">Время последнего поста:</b>
+    <b style="color:white "th:text="${timepost}"/>
+    </p>
+    <p>
+    <b style="color:white">Время последнего изменения пользователя:</b>
+    <b style="color:white "th:text="${timeuser}"/>
+    </p>
+   <p> <a th:href="'/MainPage/changeUser/ChangeRole/'+${el.getLogin()}" >Изменить роль</a></p>
+</div>
