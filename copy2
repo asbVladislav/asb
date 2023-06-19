@@ -15,3 +15,166 @@
             return  "redirect:/newUser?error=true";
         }
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    <div class="boxright" >
+
+        <h3>Все пользователи</h3>
+        <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+        <div th:each="el:${user}">
+            <h4 th:text="${el.login}"     />
+<!--            <h5 th:text="${el.userrole}"/>-->
+            <a th:href="'/MainPage/changeUser/'+${el.login}">Настройки</a>
+            <p>------------------------------------------</p>
+
+        </div>
+    </div>
+    
+    
+    
+     @GetMapping("/MainPage")
+    public String MainPage(Principal principal,Model model) {
+        if (principal != null) {
+            model.addAttribute("name", principal.getName());
+
+
+        Iterable<user>users= UserRepository.findAll();
+        model.addAttribute("user", users);
+        Iterable<posts> posts=PostsRepos.findAllOrdered();
+        //Iterable<posts> posts=PostsRepos.findAll();
+        model.addAttribute("posts", posts);
+
+
+        Optional<user> thisUser=UserRepository.findById(principal.getName());
+        ArrayList<user> CurrentUser=new ArrayList<>();//!!!!!!!!!!
+        thisUser.ifPresent(CurrentUser::add);
+        Role userRole =CurrentUser.get(0).getUserrole();
+        if(userRole==Role.ADMIN ||userRole==Role.SUPERADMIN )
+        {return "mainPageForAdmins";} else {
+            return "mainPage";
+        }
+
+        }else {
+            model.addAttribute("name", "Таинственный незнакомец");
+        return "mainPage";
+        }
+    }
+    
+    
+    
+    
+    
+    
+    
+    @GetMapping("/MainPage/changeUser/{LOGIN}")
+    public String ChangePageUser(@PathVariable( value= "LOGIN")String log, Principal principal, Model model) {
+        Optional<user> users=UserRepository.findById(log);
+        ArrayList<user> CurrentUser=new ArrayList<>();//!!!!!!!!!!
+        users.ifPresent(CurrentUser::add);
+        user ShowUser=CurrentUser.get(0);
+        model.addAttribute("users", CurrentUser);
+
+
+
+
+        Optional<user> thisUser = UserRepository.findById(principal.getName());
+
+        ArrayList<user> qUser=new ArrayList<>();//!!!!!!!!!!
+        thisUser.ifPresent(qUser::add);
+        user myUser=qUser.get(0);
+
+        DateFormat TIMESTAMP = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        Date dd =new Date();
+        String time;
+        if(ShowUser.getDatalastpost()>1){
+        dd.setTime(ShowUser.getDatalastpost());
+        time=TIMESTAMP.format(dd);
+        model.addAttribute("timepost",time);
+        System.out.println(time);
+        }else{model.addAttribute("timepost","Пока постов не было");}
+        if(ShowUser.getDatalastpromotion()>1){
+        dd.setTime(ShowUser.getDatalastpromotion());
+         time=TIMESTAMP.format(dd);
+        model.addAttribute("timeuser",time);
+        System.out.println(time);}
+        else{model.addAttribute("timeuser","Пользователей пока не изменял");}
+
+
+        Date dat = new Date();
+        if (myUser.getUserrole()==Role.SUPERADMIN){return "UserPageSettings";}
+        else {
+            if (dat.getTime()-myUser.getDatalastpromotion()<1*24*60*60*1000)
+            {
+                return "ErrorTime";
+            }
+            else
+            {
+                return "UserPageSettings";
+            }
+
+        }
+    }
+    @GetMapping("/MainPage/changeUser/ChangeRole/{LOGIN}")
+    public String ChangeRolePageUser(@PathVariable( value= "LOGIN")String log, Principal principal) {
+
+        Optional<user> thisUser = UserRepository.findById(principal.getName());
+
+        ArrayList<user> qUser=new ArrayList<>();//!!!!!!!!!!
+        thisUser.ifPresent(qUser::add);
+        user myUser=qUser.get(0);
+        Date dat = new Date();
+
+
+        if (myUser.getUserrole()==Role.SUPERADMIN){
+            Optional<user> users=UserRepository.findById(log);
+            System.out.println(principal.getName());
+
+            ArrayList<user> CurrentUser=new ArrayList<>();//!!!!!!!!!!
+            users.ifPresent(CurrentUser::add);
+            user ChangeUser= CurrentUser.get(0);
+            Role roleOfUser=ChangeUser.getUserrole();
+
+            if (roleOfUser==Role.USER)
+            {ChangeUser.setUserrole(Role.ADMIN);}
+            if (roleOfUser==Role.ADMIN)
+            {ChangeUser.setUserrole(Role.USER);}
+            UserRepository.save(ChangeUser);
+
+            return "redirect:/MainPage";
+
+        }else {
+            if (dat.getTime() - myUser.getDatalastpromotion() < 1 * 24 * 60 * 60 * 1000) {
+                myUser.setUserrole(Role.USER);
+                UserRepository.save(myUser);
+                return "/banned";
+            } else {
+                Optional<user> users=UserRepository.findById(log);
+                System.out.println(principal.getName());
+
+                ArrayList<user> CurrentUser=new ArrayList<>();//!!!!!!!!!!
+                users.ifPresent(CurrentUser::add);
+                user ChangeUser= CurrentUser.get(0);
+                Role roleOfUser=ChangeUser.getUserrole();
+
+                if (roleOfUser==Role.USER)
+                {ChangeUser.setUserrole(Role.ADMIN);}
+                if (roleOfUser==Role.ADMIN)
+                {ChangeUser.setUserrole(Role.USER);}
+                UserRepository.save(ChangeUser);
+
+
+                myUser.setDatalastpromotion(dat.getTime());
+                UserRepository.save(myUser);
+                return "redirect:/MainPage";
+            }
+        }
+
+
+    }
