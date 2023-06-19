@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Your Bank</title>
+    <style>
+        .header {
+            background-color: #2a2a2a;
+            color: white;
+            padding: 50px 60px;
+            color: white;
+        }
+        .boxleft {
+            float: left;
+            width: 1000px;
+            text-align: left;
+            color: white;
+            box-sizing: border-box;
+        }
+        .boxright {
+
+            float: left;
+            width: 300px;
+            text-align: center;
+            color: white;
+            margin-bottom: 25px;
+
+        }
+        * {
+            box-sizing: border-box;
+
+        }
+        body {
+            background-color:  black ;
+        }
+
+        a:link, a:visited {
+            font-family: Arial, Helvetica, sans-serif;
+            width: 130px;
+            background-color: white;
+            color: black;
+            border: #a1a1a1;
+            border-radius: 12px;
+            padding: 15px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+        a:hover, a:active {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: #575757;
+            color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+
+
+
+</div>
+
+
+<div class="clearfix"  style="margin-left: 10%; ">
+    <div class="boxleft">
+
+        <h1>Курсы валют</h1>
+        <p>~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</p>
+        <div th:each="el:${jsons}">
+            <h3 th:text="'Двнутренний код: '+${el.getCur_ID()}"     />
+            <h3 th:text="'этот код используется для связи, при изменениях наименования, количества единиц к которому устанавливается курс белорусского рубля, буквенного, цифрового кодов и т.д. фактически одной и той же валюты: '+${el.getCur_ParentID()}"     />
+            <h3 th:text="' цифровой код: '+${el.getCur_Code()}"     />
+            <h3 th:text="'буквенный код: '+${el.getCur_Abbreviation()}"     />
+            <h3 th:text="'наименование валюты на русском языке: '+${el.getCur_Name()}"     />
+            <h3 th:text="'наименование на белорусском языке: '+${el.getCur_Name_Bel()}"     />
+            <h3 th:text="'наименование на английском языке: '+${el.getCur_Name_Eng()}"     />
+            <h3 th:text="'наименование валюты на русском языке, содержащее количество единиц: '+${el.getCur_QuotName()}"     />
+            <h3 th:text="'наименование на белорусском языке, содержащее количество единиц: '+${el.getCur_QuotName_Bel()}"     />
+            <h3 th:text="'наименование на английском языке, содержащее количество единиц: '+${el.getCur_QuotName_Eng()}"     />
+            <h3 th:text="'наименование валюты на русском языке во множественном числе: '+${el.getCur_NameMulti()}"     />
+            <h3 th:text="'наименование валюты на белорусском языке во множественном числе: '+${el.getCur_Name_BelMulti()}"     />
+            <h3 th:text="'наименование на английском языке во множественном числе: '+${el.getCur_Name_EngMulti()}"     />
+            <h3 th:text="'количество единиц иностранной валюты: '+${el.getCur_Scale()}"     />
+            <h3 th:text="'периодичность установления курса (0 – ежедневно, 1 – ежемесячно): '+${el.getCur_Periodicity()}"     />
+            <h3 th:text="'дата включения валюты в перечень валют, к которым устанавливается официальный курс бел. рубля: '+${el.getCur_DateStart()}"     />
+            <h3 th:text="'дата исключения валюты из перечня валют, к которым устанавливается официальный курс бел. рубля: '+${el.getCur_DateEnd()}"     />
+            <h3 th:text="'Курс: '+${el.getCur_OfficialRate()}"     />
+
+            <p>------------------------------------------</p>
+
+
+
+        </div>
+
+
+    </div>
+
+    </div>
+</div>
+
+
+
+
+
+
+</div>
+
+</body>
+</html>

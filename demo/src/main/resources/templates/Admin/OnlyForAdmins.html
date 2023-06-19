@@ -1,0 +1,151 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Админ панель</title>
+</head>
+
+<style>
+    body {
+        background-color:  black ;
+        text-align: center;
+    }
+    a:link, a:visited {
+        font-family: Arial, Helvetica, sans-serif;
+        width: 100px;
+        background-color: white;
+        color: black;
+        border: #a1a1a1;
+        border-radius: 12px;
+        padding: 15px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+    }
+    a:hover, a:active {
+        font-family: Arial, Helvetica, sans-serif;
+        background-color: #575757;
+        color: white;
+    }
+
+    .button {
+        border: none;
+        color: white;
+        border-radius: 12px;
+        padding: 16px 32px;
+        margin-left: 38.5%;
+        margin-top: 5%;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+
+    .button1 {
+        background-color: white;
+        color: black;
+        border: 0px solid #000000;
+    }
+
+    .button1:hover {
+        background-color: #575757;
+        color: white;
+    }
+
+
+
+
+    input[type=radio] {
+        display: none;
+    }
+
+    label {
+        display: inline-block;
+        padding: 16px 32px;
+        border-radius: 12px;
+        background-color: #575757;
+        cursor: pointer;
+        margin-right: 1%;
+        margin-left: 1%;
+    }
+
+    input[type=radio]:checked + label {
+        background-color: #4CAF50;
+    }
+
+    input[type=email] {
+        border: none;
+        border-bottom: 2px solid #ccc;
+        border-radius: 12px;
+
+        padding: 16px 32px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    input[type=email]:focus {
+        border-bottom: 5px solid #575757;
+    }
+
+    input[type=number] {
+        border: none;
+
+        border-bottom: 2px solid #ccc;
+        alignment: center;
+        border-radius: 12px;
+        padding: 16px 32px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    input[type=number]:focus {
+        border-bottom: 5px solid #575757;
+    }
+    input[type=date] {
+        border: none;
+
+        border-bottom: 2px solid #ccc;
+        alignment: center;
+        border-radius: 12px;
+        padding: 16px 32px;
+        font-size: 16px;
+        outline: none;
+    }
+
+    input[type=date]:focus {
+        border-bottom: 5px solid #575757;
+    }
+
+
+
+</style>
+<body>
+<div class="container">
+
+
+
+
+
+        <form class="form-signin" method="post" action="admin/currency">
+            <button style="margin-left: 20px; margin-bottom: 15px"  class="button button1" type="submit">добавить информацию!</button>
+        </form>
+        <form class="form-signin" method="post" action="admin/monthlyrates">
+            <button style="margin-left: 20px; margin-bottom: 15px"  class="button button1" type="submit">добавить ежемесячную информацию!</button>
+        </form>
+        <form class="form-signin" method="post" action="admin/dailyrates">
+            <button style="margin-left: 20px; margin-bottom: 15px"  class="button button1" type="submit">добавить ежедневную информацию!</button>
+        </form>
+    <form class="form-signin" method="get" action="admin/changeusers">
+        <button style="margin-left: 20px; margin-bottom: 15px"  class="button button1" type="submit">изменить роли пользователей</button>
+    </form>
+
+
+
+    <p> <a style="float: left"  href="/"> На главную</a></p>
+
+
+</div>
+</body>
+</html>

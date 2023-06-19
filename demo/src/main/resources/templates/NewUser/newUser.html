@@ -1,0 +1,111 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Login User</title>
+</head>
+<style>
+  body {
+    background-color:  black ;
+  }
+  a:link, a:visited {
+    font-family: Arial, Helvetica, sans-serif;
+    width: 200px;
+    background-color: white;
+    color: black;
+    border: #a1a1a1;
+    border-radius: 12px;
+    padding: 15px 25px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+  }
+  a:hover, a:active {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #575757;
+    color: white;
+
+  }
+
+
+
+  .button {
+    border: none;
+    color: white;
+    border-radius: 12px;
+    padding: 16px 32px;
+    margin-left: 38.5%;
+    margin-top: 5%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+
+    transition-duration: 0.4s;
+    cursor: pointer;
+  }
+
+  .button1 {
+    background-color: white;
+    color: black;
+    border: 0px solid #000000;
+  }
+
+  .button1:hover {
+    background-color: #575757;
+    color: white;
+  }
+
+  input[type=text] {
+    border: none;
+    border-bottom: 2px solid #ccc;
+    border-radius: 12px;
+    margin-left: 40%;
+    padding: 16px 32px;
+    font-size: 16px;
+    outline: none;
+  }
+
+  input[type=text]:focus {
+    border-bottom: 5px solid #575757;
+  }
+
+  input[type=password] {
+    border: none;
+    margin-left: 40%;
+    border-bottom: 2px solid #ccc;
+    alignment: center;
+    border-radius: 12px;
+    padding: 16px 32px;
+    font-size: 16px;
+    outline: none;
+  }
+
+  input[type=password]:focus {
+    border-bottom: 5px solid #575757;
+  }
+
+
+</style>
+
+<body>
+<div class="container" style="margin-top: 5%" >
+  <form class="form-signin" method="post" action="newUser/">
+    <h2 class="form-signin-heading"></h2>
+    <p>
+
+      <input type="text" id="login" name="log" class="form-control" placeholder="Логин" required>
+    </p>
+    <p>
+
+      <input type="password" id="password" name="pass" class="form-control" placeholder="Пароль" required>
+    </p>
+    <p>
+
+
+
+    <button class="button button1" type="submit">Добавить нового пользователя!</button>
+  </form>
+  <p> <a href="/">Передумал(</a></p>
+</div>
+</body>
+</html>
